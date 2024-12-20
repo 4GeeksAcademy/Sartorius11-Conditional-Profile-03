@@ -1,3 +1,4 @@
+import { left, right } from "@popperjs/core";
 import "../style/index.css";
 
 /**
@@ -33,14 +34,43 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${
+            variables.name == null || variables.name == ""
+              ? "first name"
+              : variables.name
+          }
+          ${
+            variables.lastName == null || variables.lastName == ""
+              ? "last Name"
+              : variables.lastName
+          }</h1>
+          <h2>${
+            variables.role == null || variables.role == ""
+              ? "Role"
+              : variables.role
+          }</h2>
+          <h3>${
+            variables.city == null || variables.city == ""
+              ? "City"
+              : variables.city
+          }, ${
+    variables.country == null || variables.country == ""
+      ? "Country"
+      : variables.country
+  }</h3>
+         <ul class="${variables.socialMediaPosition}">
+          <li><a href= "https://x.com/BySarto11" ${
+            variables.x
+          } target="_blank"= ><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/Sartorius11"${
+              variables.github
+            } target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href= "https://www.linkedin.com/in/fernando-sartorius-carreras/"${
+              variables.linkedin
+            }target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href= "https://www.instagram.com/" ${
+              variables.instagram
+            } target="_blank"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -54,13 +84,15 @@ window.onload = function() {
     // if includeCover is true the algorithm should show the cover image
     includeCover: true,
     // this is the image's url that will be used as a background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgziRwVG7Dlxe4PWFLhzYdazGECU-nC6vvH7fTHFrN-JhNeA5a8K873MVqNyT2UECv_CwOxvfrHU8_j7epKTdR0qpUQBDZEiCRlY6T68hu_B3is5bMeoM5rwS86wJQ7K4aHX02uSZPtneg/s1600/Magic_the_gathering-card_back.jpg",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL:
+      "https://i.etsystatic.com/22474890/r/il/e46033/2591689389/il_fullxfull.2591689389_pyku.jpg",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
-    twitter: null,
+    x: null,
     github: null,
     linkedin: null,
     instagram: null,
