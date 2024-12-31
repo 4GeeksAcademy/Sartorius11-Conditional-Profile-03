@@ -56,24 +56,25 @@ function render(variables = {}) {
           }, ${
     variables.country == null || variables.country == ""
       ? "Country"
-      : variables.country
+      : variables.countr
   }</h3>
-         <ul class="${variables.socialMediaPosition}">
-          <li><a href= "https://x.com/BySarto11" ${
-            variables.x
-          } target="_blank"= ><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/Sartorius11"${
-              variables.github
-            } target="_blank"><i class="fab fa-github"></i></a></li>
-            <li><a href= "https://www.linkedin.com/in/fernando-sartorius-carreras/"${
+    <ul class=${variables.socialMediaPosition}>
+            <li><a href="https://twitter.com/${
+              variables.twitter ? variables.twitter : "Sarto"
+            }" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${
+              variables.github ? variables.github : "Sartorius11"
+            }" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${
               variables.linkedin
-            }target="_blank"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href= "https://www.instagram.com/" ${
-              variables.instagram
-            } target="_blank"><i class="fab fa-instagram"></i></a></li>
+                ? variables.linkedin
+                : "Fernando-Sartorius-Carreras"
+            }" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${
+              variables.instagram ? variables.instagram : "You"
+            }" target="_blank"><i class="fab fa-instagram"></i></a></li>
           </ul>
-        </div>
-    `;
+        </div>`;
 }
 
 /**
